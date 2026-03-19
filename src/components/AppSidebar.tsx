@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Factory,
   Settings,
+  ClipboardList,
 } from "lucide-react";
 
 const navItems = [
