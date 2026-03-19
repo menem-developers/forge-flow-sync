@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Factory,
   Settings,
+  ClipboardList,
 } from "lucide-react";
 
 const navItems = [
@@ -18,6 +19,7 @@ const navItems = [
   { title: "Users", path: "/users", icon: Users },
   { title: "Finance", path: "/finance", icon: DollarSign },
   { title: "Reports", path: "/reports", icon: FileText },
+  { title: "Audit Log", path: "/audit-log", icon: ClipboardList },
   { title: "Settings", path: "/settings", icon: Settings },
 ];
 
