@@ -11,6 +11,7 @@ import {
   Eye,
   MoreHorizontal,
   CalendarDays,
+  AlertTriangle,
 } from "lucide-react";
 import { StatusBadge, PriorityBadge } from "@/components/StatusBadge";
 import { DataTable } from "@/components/DataTable";
