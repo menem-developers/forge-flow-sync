@@ -3,24 +3,27 @@ import { NavLink, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
   FolderKanban,
-  Users,
   FileText,
+  Users,
   DollarSign,
   ChevronLeft,
   ChevronRight,
   Factory,
   Settings,
   ClipboardList,
+  Briefcase,
+  UserCheck,
 } from "lucide-react";
 
 const navItems = [
-  { title: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-  { title: "Projects", path: "/projects", icon: FolderKanban },
-  { title: "Users", path: "/users", icon: Users },
+  { title: "Project Dashboard", path: "/dashboard", icon: LayoutDashboard },
+  { title: "Tender Dashboard", path: "/tender-dashboard", icon: Briefcase },
+  { title: "Project", path: "/projects", icon: FolderKanban },
+  { title: "Tender", path: "/tenders", icon: FileText },
+  { title: "Employee Activity", path: "/employee-activity", icon: UserCheck },
+  { title: "User Master", path: "/users", icon: Users },
   { title: "Finance", path: "/finance", icon: DollarSign },
-  { title: "Reports", path: "/reports", icon: FileText },
-  { title: "Audit Log", path: "/audit-log", icon: ClipboardList },
-  { title: "Settings", path: "/settings", icon: Settings },
+  { title: "Setting", path: "/settings", icon: Settings },
 ];
 
 export function AppSidebar() {
@@ -33,7 +36,6 @@ export function AppSidebar() {
         collapsed ? "w-16" : "w-60"
       }`}
     >
-      {/* Brand */}
       <div className="flex items-center gap-3 px-4 h-16 border-b border-sidebar-border">
         <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary">
           <Factory className="w-4 h-4 text-primary-foreground" />
@@ -50,10 +52,12 @@ export function AppSidebar() {
         )}
       </div>
 
-      {/* Nav */}
       <nav className="flex-1 py-3 px-2 space-y-0.5 overflow-y-auto">
         {navItems.map((item) => {
-          const isActive = location.pathname.startsWith(item.path);
+          const isActive =
+            item.path === "/projects"
+              ? location.pathname === "/projects" || location.pathname.startsWith("/projects/")
+              : location.pathname.startsWith(item.path);
           return (
             <NavLink
               key={item.path}
@@ -71,7 +75,6 @@ export function AppSidebar() {
         })}
       </nav>
 
-      {/* Collapse toggle */}
       <button
         onClick={() => setCollapsed(!collapsed)}
         className="flex items-center justify-center h-10 border-t border-sidebar-border text-sidebar-muted hover:text-sidebar-accent-foreground transition-colors"
